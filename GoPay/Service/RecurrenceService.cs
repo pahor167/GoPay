@@ -77,7 +77,7 @@ namespace GoPay.Service
                 {
                     Amount = nextPayment.Amount,
                     Count = 1,
-                    Name = "Iniciační opakovaná platba",
+                    Name = "Opakovaná platba",
                 }
             };
 
