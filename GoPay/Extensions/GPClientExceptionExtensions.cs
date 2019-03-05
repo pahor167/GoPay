@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Newtonsoft.Json;
+using System.Text;
 
 namespace GoPay.Extensions
 {
@@ -6,17 +7,11 @@ namespace GoPay.Extensions
     {
         public static string GetErrors(this GPClientException exception)
         {
-            var sb = new StringBuilder();
-
             if (exception.Error != null)
             {
-                foreach (var error in exception.Error.ErrorMessages)
-                {
-                    sb.Append($"ErrorName: {error.ErrorName}; ErrorDescription: {error.Description}");
-                }
+                return JsonConvert.SerializeObject(exception.Error.ErrorMessages);
             }
-
-            return sb.ToString();
+            return null;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GoPay.Models
 {
-    public class CreateRecurrenceModel: GoPayBaseModel
+    public class PaymentStatusModel : GoPayBaseModel
     {
         
     }

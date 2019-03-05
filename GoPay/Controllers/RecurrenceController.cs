@@ -29,8 +29,8 @@ namespace GoPay.Controllers
         /// <response code="200">Returns id of newly created paid on deman payment</response>
         /// <response code="500">Creation of paid on demand payment was not succesfull</response>     
         [HttpPost]
-        public long CreatePaidOndemandPayment([FromBody]CreateRecurrenceModel model)
-        {           
+        public Payment CreatePaidOndemandPayment([FromBody]CreateRecurrenceModel model)
+        {
             return this._recurrenceService.CreatePaidOnDemandPayment(_connectorFactory.Create(model));            
         }
 
@@ -41,9 +41,9 @@ namespace GoPay.Controllers
         /// <response code="200">Payment was successfull</response>
         /// <response code="500">Payment was not succesfull</response>     
         [HttpPost("{IdOfPaidOnDemandPayment}")]
-        public void NextPayment(long IdOfPaidOnDemandPayment, [FromBody]NextPaymentModel model)
+        public Payment NextPayment(long IdOfPaidOnDemandPayment, [FromBody]NextPaymentModel model)
         {
-            this._recurrenceService.NextPayment(_connectorFactory.Create(model),
+            return this._recurrenceService.NextPayment(_connectorFactory.Create(model),
                                                 IdOfPaidOnDemandPayment,
                                                 _mapper.Map<NextPayment>(model));           
         }

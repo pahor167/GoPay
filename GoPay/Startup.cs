@@ -32,6 +32,8 @@ namespace GoPay
             services.Configure<GoPayConfig>(Configuration.GetSection("GoPayConfiguration"));
             services.AddSingleton<IConnectorFactory, ConnectorFactory>();
             services.AddSingleton<IRecurrenceService, RecurrenceService >();
+            services.AddSingleton<IPaymentService, PaymentService>();
+            
 
             services.AddSwaggerGen(c =>
             {
