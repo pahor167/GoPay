@@ -27,6 +27,12 @@ namespace GoPay.Controllers
             this._mapper = mapper;
         }
 
+        /// <summary>
+        /// Gets payment info
+        /// </summary>
+        /// <returns>Payment info</returns>
+        /// <response code="200">Payment exists</response>
+        /// <response code="500">Payment does not exist</response>     
         [HttpPost("{paymentId}")]
         public Payment PaymentStatus(long paymentId, [FromBody]PaymentStatusModel model)
         {
